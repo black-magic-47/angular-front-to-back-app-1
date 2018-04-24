@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { User } from '../../models/User';
 
 @Component({
     selector: 'app-user',
@@ -6,12 +7,18 @@ import { Component } from '@angular/core';
     styleUrls: ['./user.component.css']
   })
   export class UserComponent {
-      firstName: String = 'John';
-      lastName: String = 'Doe';
-      age: Number = 30;
-      address: Object = {
+    user: User;
+
+      constructor() {
+        this.user.firstName = 'John';
+        this.user.lastName = 'Doe';
+        this.user.age = 30;
+        this.user.address = {
           street: '50 Main st',
           city: 'Boston',
           state: 'MA'
       };
+      }
   }
+
+
