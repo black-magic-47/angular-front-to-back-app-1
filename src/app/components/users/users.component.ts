@@ -24,8 +24,8 @@ export class UsersComponent implements OnInit {
           city: 'Boston',
           state: 'MA'
         },
-        image: 'http://lorempixel.com/200/200/people/3',
-        isActive: true
+        isActive: true,
+        registered: new Date('01/02/2018 06:30:00')
       },
       {
         firstName: 'Kevin',
@@ -36,8 +36,8 @@ export class UsersComponent implements OnInit {
           city: 'Boston',
           state: 'MA'
         },
-        image: 'http://lorempixel.com/200/200/people/2',
-        isActive: false
+        isActive: false,
+        registered: new Date('11/13/2017 07:10:00')
       },
       {
         firstName: 'Karen',
@@ -48,8 +48,8 @@ export class UsersComponent implements OnInit {
           city: 'Boston',
           state: 'MA'
         },
-        image: 'http://lorempixel.com/200/200/people/1',
-        isActive: true
+        isActive: true,
+        registered: new Date('10/13/2018 01:15:00')
       }
     ];
   }
