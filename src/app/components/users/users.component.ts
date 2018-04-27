@@ -6,11 +6,20 @@ import { User } from '../../models/User';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
-
+  user: User = {
+    firstName: '',
+    lastName: '',
+    age: null,
+    address: {
+      street: '',
+      city: '',
+      state: ''
+    }
+  };
   users: User[];
-  showExtended: Boolean = true;
   loaded: Boolean = true;
-  enableAdd: Boolean = true;
+  enableAdd: Boolean = false;
+  showUserForm: Boolean = false;
   constructor() { }
 
   ngOnInit() {
@@ -25,7 +34,8 @@ export class UsersComponent implements OnInit {
           state: 'MA'
         },
         isActive: true,
-        registered: new Date('01/02/2018 06:30:00')
+        registered: new Date('01/02/2018 06:30:00'),
+        hide: true
       },
       {
         firstName: 'Kevin',
@@ -37,7 +47,8 @@ export class UsersComponent implements OnInit {
           state: 'MA'
         },
         isActive: false,
-        registered: new Date('11/13/2017 07:10:00')
+        registered: new Date('11/13/2017 07:10:00'),
+        hide: true
       },
       {
         firstName: 'Karen',
@@ -49,13 +60,30 @@ export class UsersComponent implements OnInit {
           state: 'MA'
         },
         isActive: true,
-        registered: new Date('10/13/2018 01:15:00')
+        registered: new Date('10/13/2018 01:15:00'),
+        hide: true
       }
     ];
   }
 
-  addUser = (user: User) => {
-    this.users.push(user);
+  addUser = () => {
+    this.user.isActive = true;
+    this.user.registered = new Date();
+    this.users.unshift(this.user);
+    this.user = {
+      firstName: '',
+      lastName: '',
+      age: null,
+      address: {
+        street: '',
+        city: '',
+        state: ''
+      }
+    };
+  }
+
+  submitForm = (e) => {
+    e.preventDefault();
   }
 
 }
