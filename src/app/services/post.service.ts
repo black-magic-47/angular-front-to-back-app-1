@@ -21,4 +21,8 @@ export class PostService {
   updatePost = (post: Post): Observable<Post> => {
     return this.httpClient.put<Post>(this.postURL + '/' + post.id, post);
   }
+
+  deletePost = (id: Number): Observable<any> => {
+    return this.httpClient.delete<any>(this.postURL + '/' + id);
+  }
 }

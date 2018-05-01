@@ -42,4 +42,16 @@ export class PostsComponent implements OnInit {
     this.isEdit = true;
   }
 
+  removePost = (id: Number) => {
+    if (confirm('Are you sure?')) {
+      this.postService.deletePost(id).subscribe( () => {
+        this.posts.forEach((curr, index) => {
+          if (id === curr.id) {
+              this.posts.splice(index, 1);
+          }
+        });
+      });
+    }
+  }
+
 }
